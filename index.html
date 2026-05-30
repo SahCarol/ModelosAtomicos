@@ -86,6 +86,7 @@
             display: inline-block;
             margin-top: 0.5rem;
             margin-bottom: 0.25rem;
+            text-transform: uppercase;
         }
 
         .story-text em {
@@ -274,7 +275,7 @@
 
 <div class="story-container">
     <div class="title-section">
-        <h1>🧪⚛️ Modelos Atômicos</h1>
+        <h1>🧪⚛️ MODELOS ATÔMICOS</h1>
         <p>✦ uma contação científica bem humorada ✦</p>
     </div>
 
@@ -284,46 +285,131 @@
             <!-- carregado via JS -->
         </div>
         <div style="display: flex; justify-content: flex-end;">
-            <button id="factBtn" class="fact-button">📜 Fato Real +</button>
+            <button id="factBtn" class="fact-button">📜 FATO REAL +</button>
         </div>
     </div>
 
     <div class="nav-buttons">
-        <button id="prevBtn" class="nav-btn">◀ Anterior</button>
-        <button id="nextBtn" class="nav-btn">Próxima história ▶</button>
+        <button id="prevBtn" class="nav-btn">◀ ANTERIOR</button>
+        <button id="nextBtn" class="nav-btn">PRÓXIMA HISTÓRIA ▶</button>
     </div>
 
     <div class="progress-indicator" id="progressDots">
         <!-- dinâmico -->
     </div>
-    <footer>✨ clique em "Fato Real" para descobrir curiosidades científicas verdadeiras ✨</footer>
+    <footer>✨ clique em "FATO REAL" para descobrir curiosidades científicas verdadeiras ✨</footer>
 </div>
 
 <!-- modal popup -->
 <div id="factModal" class="modal">
     <div class="modal-content">
-        <h3>🔬 Fatos reais históricos</h3>
+        <h3>🔬 FATOS REAIS HISTÓRICOS</h3>
         <p id="modalFactText">Carregando fato...</p>
-        <button class="close-modal" id="closeModalBtn">Fechar</button>
+        <button class="close-modal" id="closeModalBtn">FECHAR</button>
     </div>
 </div>
 
 <script>
-    // TRÊS HISTÓRIAS COMPLETAS
+    // TRÊS HISTÓRIAS COMPLETAS (sem asteriscos)
     const stories = [
         { // 0 - DALTON
-            title: "⚛️ John Dalton & a bola de sinuca",
-            text: `*Dalton*\n\nHavia dois homens que juntos tomavam um banho, até que um começou a esfregar as costas do outro:\n— Estou esfregando muito suas costas e sua pele está intacta. Você deve ser feito de algo indestrutível.\n— A pele deve ser feita de algo indestrutível, mais indestrutível do que a água, o fogo, a terra e o ar.\n— Espera, você é o Avatar?\n— Não, mas sou feito de algo que suporta esses elementos.\n\nUm tempo depois, John Dalton disse:\n— Podíamos chamar esse algo indestrutível de átomo.\n\nDepois do banho, foi para debaixo de uma laranjeira pensar na coisa indestrutível:\n— Como é um átomo fisicamente? — ele pensou.\nAté que então uma laranja cai na cabeça dele.\n— Laranja...\nEle pegou a laranja e lançou para longe.\n— Espera: se eu pegar um lápis, terei apoio para partir ao meio, mas e uma laranja? Como irei segurar... O sol e a lua também são redondos e indestrutíveis.\n\nNisso, seu amor chega. Era um rapaz alto e forte, no qual perguntou:\n— O que você está fazendo debaixo desta árvore?\n— Nossa, meu amor também é redondo, tudo é redondo — pensou Dalton.\n— Amor! O átomo deve ser em uma forma esférica — gritou Dalton.\n\nDalton então foi dar a palestra sobre o assunto e usou bolas de sinuca como demonstração:\n— Olha, pegamos estas bolas vermelhas e verdes.\nAs pessoas da palestra começaram a dar risada, e Dalton ficou confuso.\n— Bem... Suponhamos que as bolas vermelhas sejam o nitrogênio e as verdes, oxigênios.\nE surgiram mais risadas, até que Mor murmurou uma frase em seus ouvidos:\n— Você está trocando as bolas.\nNeste momento, John Dalton descobriu um novo problema: o daltonismo.\n— Ok, ok, então vamos representar isso apenas como uma bola de bilhar.\n— Brilhar?\n— Não é brilhar, é bilhar.\n— Ah... Tá certo!`,
+            title: "⚛️ JOHN DALTON & A BOLA DE SINUCA",
+            text: `Dalton
+
+Havia dois homens que juntos tomavam um banho, até que um começou a esfregar as costas do outro:
+— Estou esfregando muito suas costas e sua pele está intacta. Você deve ser feito de algo indestrutível.
+— A pele deve ser feita de algo indestrutível, mais indestrutível do que a água, o fogo, a terra e o ar.
+— Espera, você é o Avatar?
+— Não, mas sou feito de algo que suporta esses elementos.
+
+Um tempo depois, John Dalton disse:
+— Podíamos chamar esse algo indestrutível de átomo.
+
+Depois do banho, foi para debaixo de uma laranjeira pensar na coisa indestrutível:
+— Como é um átomo fisicamente? — ele pensou.
+Até que então uma laranja cai na cabeça dele.
+— Laranja...
+Ele pegou a laranja e lançou para longe.
+— Espera: se eu pegar um lápis, terei apoio para partir ao meio, mas e uma laranja? Como irei segurar... O sol e a lua também são redondos e indestrutíveis.
+
+Nisso, seu amor chega. Era um rapaz alto e forte, no qual perguntou:
+— O que você está fazendo debaixo desta árvore?
+— Nossa, meu amor também é redondo, tudo é redondo — pensou Dalton.
+— Amor! O átomo deve ser em uma forma esférica — gritou Dalton.
+
+Dalton então foi dar a palestra sobre o assunto e usou bolas de sinuca como demonstração:
+— Olha, pegamos estas bolas vermelhas e verdes.
+As pessoas da palestra começaram a dar risada, e Dalton ficou confuso.
+— Bem... Suponhamos que as bolas vermelhas sejam o nitrogênio e as verdes, oxigênios.
+E surgiram mais risadas, até que Mor murmurou uma frase em seus ouvidos:
+— Você está trocando as bolas.
+Neste momento, John Dalton descobriu um novo problema: o daltonismo.
+— Ok, ok, então vamos representar isso apenas como uma bola de bilhar.
+— Brilhar?
+— Não é brilhar, é bilhar.
+— Ah... Tá certo!`,
             fact: `🧪 Fato real: John Dalton (1766-1844) foi professor inglês. Em 1808 propôs seu modelo atômico: átomos maciços, indivisíveis e esféricos, com massas próprias. Criou a primeira tabela de massas atômicas. Além disso, Dalton estudou a deficiência na percepção de cores (daltonismo), condição que ele mesmo possuía. A anedota da laranja e da sinuca ilustra bem sua visão da matéria como pequenas esferas.`
         },
         { // 1 - THOMSON
-            title: "🍮 J.J. Thomson & o pudim de passas",
-            text: `*Thomson*\n\nAntigamente existiam alquimistas, pessoas querendo procurar riqueza e juventude eterna por meio da pedra filosofal, por tanto se reuniam às vezes para discutir sobre o assunto. Becquerel trabalhava nas minas e quando achava alguma pedra legal, costumava enrolar em papel filme e deixa-la no sol, fez isso várias vezes. Até que um dia achou uma pedra muito linda, mas como saiu tarde de seu trabalho nas minas e não estava mais fazendo sol, ele então pensou:\n— Não está mais fazendo sol, então vou cobrir esta pedra com papel filme e amanhã ela será a primeira pedra que colocarei debaixo do sol.\nNisso ele enrolou a pedra e foi dormir. Ao acordar o papel filme e todas as coisas em volta a pedra foi destruída.\n— Isso é a pedra filosofal, tenho que mostrar aos alquimistas que quem manda sou eu.\n\nAntes de encontrar os alquimistas pensou em um local para proteger a pedra... guardou no bolso da calça, mas a pedra era urânio. Sua perna ficou vermelha, depois criou câncer e teve que amputá-la.\n— E agora? Meu bolso foi levado! Onde é que eu escondo minha pedra.\nBecquerel, muito inteligente, guardou no outro bolso — mesma coisa. Depois guardou no bolso da camisa, prejudicou seu coração e faleceu.\n\nOs alquimistas acharam mais pedras e saíram vendendo: água dos cosmos (pessoas morreram), creme dental dos cosmos (perderam os dentes). Até que um rapaz dormiu com a pedra e tudo foi destruído. Seu amigo, J.J. Thomson, pegou uma bateria, ligou a pedra e viu que cargas iam para o lado negativo.\n— Antigamente um doido Dalton disse que existia uma pequena partícula indestrutível chamada átomo, mas eu estou vendo esses negócios aqui, isso deve ser algo negativo do átomo... vou chama-los de elétrons.\n\nJ.J. Thomson pensou que já que conseguiu tirar os elétrons do átomo, talvez a forma do átomo seja outra.\nA mulher de Thomson fez um pudim de passas que parecia papa. Quando ele foi comer, viu que as passas caíam do garfo e pensou: talvez o átomo não seja maciço. Ficou brincando com a comida até que disse:\n— Mulher você é um gênio!\n— Sério?\n— Sim\n— Então para de brincar com a comida e vê se come.`,
+            title: "🍮 J.J. THOMSON & O PUDIM DE PASSAS",
+            text: `Thomson
+
+Antigamente existiam alquimistas, pessoas querendo procurar riqueza e juventude eterna por meio da pedra filosofal, por tanto se reuniam às vezes para discutir sobre o assunto. Becquerel trabalhava nas minas e quando achava alguma pedra legal, costumava enrolar em papel filme e deixa-la no sol, fez isso várias vezes. Até que um dia achou uma pedra muito linda, mas como saiu tarde de seu trabalho nas minas e não estava mais fazendo sol, ele então pensou:
+— Não está mais fazendo sol, então vou cobrir esta pedra com papel filme e amanhã ela será a primeira pedra que colocarei debaixo do sol.
+Nisso ele enrolou a pedra e foi dormir. Ao acordar o papel filme e todas as coisas em volta a pedra foi destruída.
+— Isso é a pedra filosofal, tenho que mostrar aos alquimistas que quem manda sou eu.
+
+Antes de encontrar os alquimistas pensou em um local para proteger a pedra... guardou no bolso da calça, mas a pedra era urânio. Sua perna ficou vermelha, depois criou câncer e teve que amputá-la.
+— E agora? Meu bolso foi levado! Onde é que eu escondo minha pedra.
+Becquerel, muito inteligente, guardou no outro bolso — mesma coisa. Depois guardou no bolso da camisa, prejudicou seu coração e faleceu.
+
+Os alquimistas acharam mais pedras e saíram vendendo: água dos cosmos (pessoas morreram), creme dental dos cosmos (perderam os dentes). Até que um rapaz dormiu com a pedra e tudo foi destruído. Seu amigo, J.J. Thomson, pegou uma bateria, ligou a pedra e viu que cargas iam para o lado negativo.
+— Antigamente um doido Dalton disse que existia uma pequena partícula indestrutível chamada átomo, mas eu estou vendo esses negócios aqui, isso deve ser algo negativo do átomo... vou chama-los de elétrons.
+
+J.J. Thomson pensou que já que conseguiu tirar os elétrons do átomo, talvez a forma do átomo seja outra.
+A mulher de Thomson fez um pudim de passas que parecia papa. Quando ele foi comer, viu que as passas caíam do garfo e pensou: talvez o átomo não seja maciço. Ficou brincando com a comida até que disse:
+— Mulher você é um gênio!
+— Sério?
+— Sim
+— Então para de brincar com a comida e vê se come.`,
             fact: `📡 Fatos reais: Henri Becquerel descobriu a radioatividade em 1896 ao perceber que sais de urânio manchavam chapas fotográficas sem luz. J.J. Thomson, em 1897, usando tubos de raios catódicos, descobriu os elétrons (partículas subatômicas negativas). Em 1904 propôs o modelo "pudim com passas": esfera positiva com elétrons incrustados. Produtos radioativos como "Radithor" e cremes foram vendidos no início do século XX, causando mortes e câncer.`
         },
         { // 2 - RUTHERFORD
-            title: "☀️ Rutherford, Bohr e o átomo solar",
-            text: `*Rutherford*\n\nAinda havia gente doida querendo a pedra filosofal em busca de riquezas, um deles era Rutherford. Ele contava com a ajuda de seu assistente Bohr para fazer seus experimentos e Bohr tinha muito medo de Rutherford, porque para ele Rutherford devia estar em um hospício faz tempo.\n— Bom dia — disse Bohr a Rutherford.\n— Bom dia hoje vamos pegar a antiga pedra filosofal e ficar ricos — anunciou Rutherford.\n— Porque ainda sou assistente desse doido? — Pensou Bohr.\n— Vou tomar um café volto logo — Disse Rutherford.\n— Ok! — Disse Bohr.\n\nRutherford saiu e ao voltar encontrou Bohr escrevendo:\n"Mamãe, caso eu morra hoje culpo o idiota do meu professor, eu sei que sou apenas assistente, mas esse trabalho é perigoso"\n— O que está escrevendo? — perguntou Rutherford curioso.\n— Nada, senhor! — disse Bohr assustado.\n\nEntão Rutherford ordenou: quero urânio, caixa de chumbo e uma película de ouro.\n— Senhor... Desculpe, mas sou seu assistente... Não sou assaltante.\n— Sim, você é um bom aluno, vai achar o material.\n\nAo juntar tudo, Rutherford colocou urânio dentro da caixa de chumbo, fez uma pequena abertura e depois colocou a película de ouro.\n— Hum... Alguns átomos conseguem passar pela película, outros sentem dificuldades e passam que nem loucos...\n— Átomos? Não íamos destruir a película de ouro?\n— E você acha que se eu falasse a verdade você estaria interessado? — Não... — Ótimo.\n\n— Mas o Dalton e Thomson não já descobriram esse negócio de átomo?\n— Isso é coisa antiga, minhas conclusões atuais são diferentes. Parece que no núcleo há cargas positivas e os elétrons são negativos. Mas os elétrons vivem na eletrosfera.\n— Que?\n— É como o sistema solar.\n— Doido — pensou Bohr.\n— Isso! Vamos fazer do sistema solar a nova representação do átomo.\n— Mas... Mas... Eu gosto tanto de pudim.\n— Eu te dou um.\n— E a película de ouro? — Pode ser minha?\n— Oh menino! Vai ganhar o pudim e ainda quer mais?\n— Doido`,
+            title: "☀️ RUTHERFORD, BOHR E O ÁTOMO SOLAR",
+            text: `Rutherford
+
+Ainda havia gente doida querendo a pedra filosofal em busca de riquezas, um deles era Rutherford. Ele contava com a ajuda de seu assistente Bohr para fazer seus experimentos e Bohr tinha muito medo de Rutherford, porque para ele Rutherford devia estar em um hospício faz tempo.
+— Bom dia — disse Bohr a Rutherford.
+— Bom dia hoje vamos pegar a antiga pedra filosofal e ficar ricos — anunciou Rutherford.
+— Porque ainda sou assistente desse doido? — Pensou Bohr.
+— Vou tomar um café volto logo — Disse Rutherford.
+— Ok! — Disse Bohr.
+
+Rutherford saiu e ao voltar encontrou Bohr escrevendo:
+"Mamãe, caso eu morra hoje culpo o idiota do meu professor, eu sei que sou apenas assistente, mas esse trabalho é perigoso"
+— O que está escrevendo? — perguntou Rutherford curioso.
+— Nada, senhor! — disse Bohr assustado.
+
+Então Rutherford ordenou: quero urânio, caixa de chumbo e uma película de ouro.
+— Senhor... Desculpe, mas sou seu assistente... Não sou assaltante.
+— Sim, você é um bom aluno, vai achar o material.
+
+Ao juntar tudo, Rutherford colocou urânio dentro da caixa de chumbo, fez uma pequena abertura e depois colocou a película de ouro.
+— Hum... Alguns átomos conseguem passar pela película, outros sentem dificuldades e passam que nem loucos...
+— Átomos? Não íamos destruir a película de ouro?
+— E você acha que se eu falasse a verdade você estaria interessado? — Não... — Ótimo.
+
+— Mas o Dalton e Thomson não já descobriram esse negócio de átomo?
+— Isso é coisa antiga, minhas conclusões atuais são diferentes. Parece que no núcleo há cargas positivas e os elétrons são negativos. Mas os elétrons vivem na eletrosfera.
+— Que?
+— É como o sistema solar.
+— Doido — pensou Bohr.
+— Isso! Vamos fazer do sistema solar a nova representação do átomo.
+— Mas... Mas... Eu gosto tanto de pudim.
+— Eu te dou um.
+— E a película de ouro? — Pode ser minha?
+— Oh menino! Vai ganhar o pudim e ainda quer mais?
+— Doido`,
             fact: `⚛️ Fatos reais: Experimento de Rutherford (1909) com Geiger e Marsden: partículas alfa bombardeadas em ouro – maioria passava, mas 1 a cada 8000 era desviada, provando um núcleo pequeno, denso e positivo. Em 1911 Rutherford propôs modelo planetário (núcleo + elétrons orbitando). Seu assistente Niels Bohr, em 1913, resolveu o problema da estabividade: elétrons em órbitas fixas (camadas) sem irradiar energia. Bohr ganhou o Nobel de 1922. Rutherford ficou conhecido como "pai da física nuclear".`
         }
     ];
