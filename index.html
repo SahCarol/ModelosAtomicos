@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Modelos Atômicos | Contação de História</title>
+    <title>🌍 Contação de História: Modelos Atômicos</title>
     <style>
         * {
             margin: 0;
@@ -12,371 +12,420 @@
         }
 
         body {
+            background: linear-gradient(145deg, #1e3c2c 0%, #0e2a1a 100%);
+            font-family: 'Segoe UI', 'Poppins', 'Georgia', system-ui, -apple-system, 'Times New Roman', serif;
             min-height: 100vh;
-            background: linear-gradient(145deg, #1a2a1f 0%, #0e160b 100%);
-            font-family: 'Georgia', 'Times New Roman', 'Segoe UI', serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 20px;
+            padding: 2rem 1.5rem;
         }
 
-        /* Container estilo livro antigo */
+        /* livro/caderno central */
         .story-container {
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
-            background: #fffaf0;
-            background-image: radial-gradient(circle at 20% 35%, rgba(210, 180, 120, 0.15) 2%, transparent 2.5%);
-            background-size: 40px 40px;
-            border-radius: 55px 35px 55px 35px;
-            box-shadow: 0 30px 50px rgba(0,0,0,0.5), inset 0 1px 3px rgba(255,250,210,0.8);
-            overflow: hidden;
+            background: #fef7e0;
+            background-image: radial-gradient(circle at 25% 40%, rgba(210, 180, 140, 0.08) 2%, transparent 2.5%);
+            background-size: 28px 28px;
+            border-radius: 48px 28px 56px 32px;
+            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.4), 0 0 0 12px #d9c8a7, 0 0 0 16px #8b5a2b;
+            padding: 2rem 2rem 2rem 2.5rem;
+            transition: all 0.2s;
         }
 
-        /* Cabeçalho */
-        .header {
-            background: #2c4727;
-            padding: 22px 28px;
+        /* título divertido */
+        .title-section {
             text-align: center;
-            border-bottom: 5px solid #f3b33d;
+            margin-bottom: 2rem;
+            border-bottom: 3px dashed #c0a86a;
+            padding-bottom: 0.8rem;
         }
 
-        .header h1 {
-            font-size: 2rem;
-            letter-spacing: 2px;
-            color: #ffea9e;
-            text-shadow: 3px 3px 0 #4a2a0c;
-            font-weight: 800;
-            font-family: 'Trebuchet MS', sans-serif;
+        .title-section h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #2c5e2e, #d4a259);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.05);
         }
 
-        .header p {
-            color: #f7d977;
+        .title-section p {
+            color: #5a3e1b;
             font-style: italic;
-            font-size: 0.95rem;
-            margin-top: 8px;
+            font-weight: 500;
         }
 
-        /* Área da história */
-        .story-area {
-            padding: 40px 35px 30px 35px;
-            min-height: 520px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chapter-badge {
-            display: inline-block;
-            background: #d4a373;
-            color: #2c2b1f;
-            padding: 6px 20px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            font-family: monospace;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            align-self: flex-start;
+        /* card da história */
+        .history-card {
+            background: #fffaf0;
+            border-radius: 32px;
+            padding: 1.8rem 2rem;
+            box-shadow: inset 0 0 0 1px rgba(255,245,200,0.9), 0 12px 24px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.55;
+            color: #2d2418;
         }
 
         .story-text {
-            background: #fffff2;
-            padding: 30px 35px;
-            border-radius: 45px 25px 45px 25px;
-            box-shadow: inset 0 0 0 2px #fff9e8, 0 12px 24px rgba(0,0,0,0.1);
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: 'Segoe UI', 'Georgia', serif;
+        }
+
+        .story-text strong {
+            color: #b45f2b;
             font-size: 1.2rem;
-            line-height: 1.65;
-            color: #2c2b1f;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            margin-bottom: 35px;
-            flex: 1;
+            display: inline-block;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
-        .story-text p {
-            margin-bottom: 1.2rem;
-        }
-
-        .story-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Navegação */
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            background: #4d6a3b;
-            border: none;
-            color: white;
-            font-weight: bold;
-            padding: 12px 32px;
-            font-size: 1.05rem;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 5px 0 #2a3a1f;
-            font-family: inherit;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-btn:hover:not(:disabled) {
-            background: #6a8e4a;
-            transform: translateY(-2px);
-            box-shadow: 0 7px 0 #2a3a1f;
-        }
-
-        .nav-btn:active:not(:disabled) {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0 #2a3a1f;
-        }
-
-        .nav-btn:disabled {
-            background: #8f9e7f;
-            box-shadow: 0 5px 0 #5a6a4a;
-            cursor: default;
-            opacity: 0.7;
-        }
-
-        .reset-btn {
-            background: #b46f3a;
-            box-shadow: 0 5px 0 #6e3e1a;
-        }
-
-        .page-indicator {
-            background: #2d2b1f;
-            padding: 8px 24px;
-            border-radius: 50px;
-            color: #ffefb0;
-            font-weight: bold;
-            font-family: monospace;
-            font-size: 0.95rem;
-        }
-
-        .footer {
-            background: #e9dbbc;
-            padding: 14px 28px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #5a482a;
-            border-top: 1px dashed #c7a56b;
+        .story-text em {
+            background: #ffeecc;
+            padding: 0 4px;
+            border-radius: 12px;
             font-style: italic;
         }
 
-        @media (max-width: 650px) {
-            .story-text {
-                font-size: 1rem;
-                padding: 22px;
+        /* botões de navegação */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .nav-btn {
+            background: #e5d5b0;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #3a280f;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-family: inherit;
+        }
+
+        .nav-btn:hover {
+            background: #cfb87c;
+            transform: scale(0.97);
+            color: #1f2f0a;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* botão fato real */
+        .fact-button {
+            background: #d9b382;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #2c1c0a;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-family: inherit;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .fact-button:hover {
+            background: #c28a4a;
+            color: white;
+        }
+
+        /* popup modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            font-family: 'Segoe UI', system-ui;
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            background: #fff6e8;
+            max-width: 550px;
+            width: 90%;
+            border-radius: 48px;
+            padding: 1.5rem 1.8rem 2rem;
+            position: relative;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.4);
+            border: 1px solid #f3d9a4;
+            animation: fadeSlide 0.2s ease-out;
+        }
+
+        .modal-content h3 {
+            font-size: 1.7rem;
+            color: #9b5e2c;
+            border-left: 6px solid #cf9f4a;
+            padding-left: 18px;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #2d2b26;
+            margin-bottom: 1.2rem;
+        }
+
+        .close-modal {
+            background: #b48b48;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            float: right;
+            margin-top: 0.5rem;
+        }
+
+        .close-modal:hover {
+            background: #7a592c;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
             }
-            .nav-btn {
-                padding: 9px 20px;
-                font-size: 0.9rem;
-            }
-            .header h1 {
-                font-size: 1.5rem;
-            }
-            .story-area {
-                padding: 25px 20px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* pequenos detalhes */
-        strong {
-            color: #5a3e1f;
+        /* rodapé divertido */
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #cfb284;
+            border-radius: 50%;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .progress-dot.active {
+            background-color: #8b5a2b;
+            width: 28px;
+            border-radius: 20px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            margin-top: 2rem;
+            color: #cbad7a;
+        }
+
+        @media (max-width: 650px) {
+            .story-container {
+                padding: 1.5rem;
+            }
+            .history-card {
+                padding: 1.2rem;
+            }
+            .nav-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
+
 <div class="story-container">
-    <div class="header">
-        <h1>⚛️ MODELOS ATÔMICOS ⚗️</h1>
-        <p>▸ Uma contação de histórias — de banhos filosóficos a nuvens quânticas ◂</p>
+    <div class="title-section">
+        <h1>🧪⚛️ Modelos Atômicos</h1>
+        <p>✦ uma contação científica bem humorada ✦</p>
     </div>
-    <div class="story-area">
-        <div class="chapter-badge" id="chapterBadge">Parte 1</div>
-        <div class="story-text" id="storyText">
-            <!-- O conteúdo será inserido aqui -->
+
+    <!-- área principal da história -->
+    <div class="history-card">
+        <div class="story-text" id="storyDisplay">
+            <!-- carregado via JS -->
         </div>
-        <div class="navigation">
-            <button class="nav-btn reset-btn" id="resetBtn">⟳ Recomeçar</button>
-            <div class="page-indicator" id="pageIndicator">Parte 1 / 6</div>
-            <button class="nav-btn" id="nextBtn">Avançar ▶</button>
+        <div style="display: flex; justify-content: flex-end;">
+            <button id="factBtn" class="fact-button">📜 Fato Real +</button>
         </div>
     </div>
-    <div class="footer">
-        🧪 Baseado na história original de Dalton, Becquerel, Thomson, Rutherford e Bohr | Cientistas, laranjas, pudins e radioatividade
+
+    <div class="nav-buttons">
+        <button id="prevBtn" class="nav-btn">◀ Anterior</button>
+        <button id="nextBtn" class="nav-btn">Próxima história ▶</button>
+    </div>
+
+    <div class="progress-indicator" id="progressDots">
+        <!-- dinâmico -->
+    </div>
+    <footer>✨ clique em "Fato Real" para descobrir curiosidades científicas verdadeiras ✨</footer>
+</div>
+
+<!-- modal popup -->
+<div id="factModal" class="modal">
+    <div class="modal-content">
+        <h3>🔬 Fatos reais históricos</h3>
+        <p id="modalFactText">Carregando fato...</p>
+        <button class="close-modal" id="closeModalBtn">Fechar</button>
     </div>
 </div>
 
 <script>
-    // ============================================================
-    // CAPÍTULOS DA HISTÓRIA (versão fluida, corrigida e envolvente)
-    // ============================================================
-    const chapters = [
-        {   
-            title: "🍊 Parte 1: Dalton e a Bola de Sinuca",
-            content: `
-                <p>Dois homens tomavam banho juntos. Um deles esfregava as costas do outro e disse:<br>
-                — Estou esfregando muito suas costas e sua pele está intacta. Você deve ser feito de algo indestrutível.<br>
-                — A pele deve ser feita de algo mais indestrutível do que a água, o fogo, a terra e o ar.<br>
-                — Espera, você é o avatar?<br>
-                — Não, mas sou feito de algo que suporta esses elementos.</p>
-                
-                <p>Tempos depois, <strong>John Dalton</strong> lembrou daquela conversa e disse:<br>
-                — Podíamos chamar esse algo indestrutível de <strong>átomo</strong>.</p>
-                
-                <p>Dalton foi pensar debaixo de uma laranjeira. Uma laranja caiu em sua cabeça.<br>
-                — Laranja... O sol, a lua... tudo é redondo! — pensou. Então gritou:<br>
-                — Amor! O átomo deve ser em <strong>forma esférica</strong>!</p>
-                
-                <p>Na palestra, usou bolas de sinuca como demonstração. Mas trocou as cores (descobriu que era daltônico). A plateia riu, mas assim nasceu o <strong>modelo atômico de Dalton</strong>: o átomo como uma esfera maciça, indestrutível e igual para cada elemento. Foi o primeiro passo da química moderna.</p>
-            `
+    // ==============================
+    //   TRÊS HISTÓRIAS COMPLETAS (base original + enriquecida com diálogos)
+    //   Mantendo exatamente os textos originais + acréscimos sutis de fatos dentro
+    //   da narrativa (mas sem alterar a essência). Os fatos reais adicionais
+    //   estarão disponíveis via popup.
+    // ==============================
+
+    const stories = [
+        { // 0 - DALTON
+            title: "⚛️ John Dalton & a bola de sinuca",
+            text: `*Dalton*\n\nHavia dois homens que juntos tomavam um banho, até que um começou a esfregar as costas do outro:\n— Estou esfregando muito suas costas e sua pele está intacta. Você deve ser feito de algo indestrutível.\n— A pele deve ser feita de algo indestrutível, mais indestrutível do que a água, o fogo, a terra e o ar.\n— Espera, você é o Avatar?\n— Não, mas sou feito de algo que suporta esses elementos.\n\nUm tempo depois, John Dalton disse:\n— Podíamos chamar esse algo indestrutível de átomo.\n\nDepois do banho, foi para debaixo de uma laranjeira pensar na coisa indestrutível:\n— Como é um átomo fisicamente? — ele pensou.\nAté que então uma laranja cai na cabeça dele.\n— Laranja...\nEle pegou a laranja e lançou para longe.\n— Espera: se eu pegar um lápis, terei apoio para partir ao meio, mas e uma laranja? Como irei segurar... O sol e a lua também são redondos e indestrutíveis.\n\nNisso, seu amor chega. Era um rapaz alto e forte, no qual perguntou:\n— O que você está fazendo debaixo desta árvore?\n— Nossa, meu amor também é redondo, tudo é redondo — pensou Dalton.\n— Amor! O átomo deve ser em uma forma esférica — gritou Dalton.\n\nDalton então foi dar a palestra sobre o assunto e usou bolas de sinuca como demonstração:\n— Olha, pegamos estas bolas vermelhas e verdes.\nAs pessoas da palestra começaram a dar risada, e Dalton ficou confuso.\n— Bem... Suponhamos que as bolas vermelhas sejam o nitrogênio e as verdes, oxigênios.\nE surgiram mais risadas, até que Mor murmurou uma frase em seus ouvidos:\n— Você está trocando as bolas.\nNeste momento, John Dalton descobriu um novo problema: o daltonismo.\n— Ok, ok, então vamos representar isso apenas como uma bola de bilhar.\n— Brilhar?\n— Não é brilhar, é bilhar.\n— Ah... Tá certo!`,
+            fact: `🧪 Fato real: John Dalton (1766-1844) foi professor inglês. Em 1808 propôs seu modelo atômico: átomos maciços, indivisíveis e esféricos, com massas próprias. Criou a primeira tabela de massas atômicas. Além disso, Dalton estudou a deficiência na percepção de cores (daltonismo), condição que ele mesmo possuía. A anedota da laranja e da sinuca ilustra bem sua visão da matéria como pequenas esferas.`
         },
-        {   
-            title: "☢️ Parte 2: Becquerel e a Pedra Filosofal",
-            content: `
-                <p><strong>Becquerel</strong> trabalhava em minas e encontrou uma pedra linda. Ele a enrolou em papel-filme, mas não havia sol. Guardou-a no bolso da calça. A pedra era <strong>urânio</strong>. Sua perna ficou vermelha, depois veio um câncer e ele precisou amputá-la.</p>
-                
-                <p>— E agora? Meu bolso foi levado!<br>
-                Becquerel, teimoso, guardou a pedra no outro bolso. O mesmo aconteceu. Depois, guardou no bolso da camisa — prejudicou o coração e ele faleceu.</p>
-                
-                <p>Os alquimistas venderam as pedras como "cosméticos cósmicos". Uns misturaram na água (as pessoas morreram), outros no creme dental (os dentes caíram). Até que um rapaz deu a pedra a <strong>J.J. Thomson</strong>, dizendo:<br>
-                — Essa pedra é do demônio, fique com ela!</p>
-                
-                <p>A ciência jamais esqueceria esse acidente: foi a primeira percepção da <strong>radioatividade</strong> e da energia escondida dentro da matéria.</p>
-            `
+        { // 1 - THOMSON (Becquerel, radioatividade, pudim de passas)
+            title: "🍮 J.J. Thomson & o pudim de passas",
+            text: `*Thomson*\n\nAntigamente existiam alquimistas, pessoas querendo procurar riqueza e juventude eterna por meio da pedra filosofal, por tanto se reuniam às vezes para discutir sobre o assunto. Becquerel trabalhava nas minas e quando achava alguma pedra legal, costumava enrolar em papel filme e deixa-la no sol, fez isso várias vezes. Até que um dia achou uma pedra muito linda, mas como saiu tarde de seu trabalho nas minas e não estava mais fazendo sol, ele então pensou:\n— Não está mais fazendo sol, então vou cobrir esta pedra com papel filme e amanhã ela será a primeira pedra que colocarei debaixo do sol.\nNisso ele enrolou a pedra e foi dormir. Ao acordar o papel filme e todas as coisas em volta a pedra foi destruída.\n— Isso é a pedra filosofal, tenho que mostrar aos alquimistas que quem manda sou eu.\n\nAntes de encontrar os alquimistas pensou em um local para proteger a pedra... guardou no bolso da calça, mas a pedra era urânio. Sua perna ficou vermelha, depois criou câncer e teve que amputá-la.\n— E agora? Meu bolso foi levado! Onde é que eu escondo minha pedra.\nBecquerel, muito inteligente, guardou no outro bolso — mesma coisa. Depois guardou no bolso da camisa, prejudicou seu coração e faleceu.\n\nOs alquimistas acharam mais pedras e saíram vendendo: água dos cosmos (pessoas morreram), creme dental dos cosmos (perderam os dentes). Até que um rapaz dormiu com a pedra e tudo foi destruído. Seu amigo, J.J. Thomson, pegou uma bateria, ligou a pedra e viu que cargas iam para o lado negativo.\n— Antigamente um doido Dalton disse que existia uma pequena partícula indestrutível chamada átomo, mas eu estou vendo esses negócios aqui, isso deve ser algo negativo do átomo... vou chama-los de elétrons.\n\nJ.J. Thomson pensou que já que conseguiu tirar os elétrons do átomo, talvez a forma do átomo seja outra.\nA mulher de Thomson fez um pudim de passas que parecia papa. Quando ele foi comer, viu que as passas caíam do garfo e pensou: talvez o átomo não seja maciço. Ficou brincando com a comida até que disse:\n— Mulher você é um gênio!\n— Sério?\n— Sim\n— Então para de brincar com a comida e vê se come.`,
+            fact: `📡 Fatos reais: Henri Becquerel descobriu a radioatividade em 1896 ao perceber que sais de urânio manchavam chapas fotográficas sem luz. J.J. Thomson, em 1897, usando tubos de raios catódicos, descobriu os elétrons (partículas subatômicas negativas). Em 1904 propôs o modelo "pudim com passas": esfera positiva com elétrons incrustados. Produtos radioativos como "Radithor" e cremes foram vendidos no início do século XX, causando mortes e câncer.`
         },
-        {   
-            title: "🍮 Parte 3: J.J. Thomson e o Pudim de Passas",
-            content: `
-                <p>Thomson pegou a pedra de urânio, ligou-a a uma bateria com pólos positivo e negativo. Ele viu <strong>raios de carga indo para o lado negativo</strong>. Descobriu os <strong>elétrons</strong>!</p>
-                
-                <p>— Dalton dizia que o átomo era indestrutível, mas estou vendo partes menores saindo dele. Chamarei esses corpúsculos de <strong>elétrons</strong>.</p>
-                
-                <p>A esposa de Thomson fez um pudim de passas (meio desmanchado, virado papa). Quando ele foi comer, as passas caíam do garfo. Teve um insight:<br>
-                — Mulher, você é um gênio! O átomo é como um <strong>pudim de passas</strong>: uma massa positiva com elétrons negativos incrustados, como as passas na massa.</p>
-                
-                <p>Nasceu o <strong>modelo atômico de Thomson</strong>, também chamado de "modelo do pudim de passas". A ciência agora sabia que o átomo tinha partes menores e que os elétrons eram partículas universais.</p>
-            `
-        },
-        {   
-            title: "🏅 Parte 4: Rutherford e o Sistema Solar Atômico",
-            content: `
-                <p><strong>Ernest Rutherford</strong> ainda sonhava com a pedra filosofal. Com seu assistente <strong>Niels Bohr</strong> (que tinha muito medo dele), montou um experimento ousado: uma caixa de chumbo com urânio, uma finíssima película de ouro e um detector de partículas.</p>
-                
-                <p>Ao atirar partículas alfa na folha de ouro, a maioria atravessava direto, mas <strong>uma em cada 8000 voltava</strong>!<br>
-                — É como atirar um canhão em papel e a bala voltar! — exclamou Rutherford, espantado.</p>
-                
-                <p>Conclusão: o átomo tem um <strong>núcleo pequeno, denso e positivo</strong>, e os elétrons giram ao redor, como planetas em torno do Sol. Nasceu o <strong>modelo atômico de Rutherford (sistema solar)</strong>.</p>
-                
-                <p>Bohr, ainda assustado, murmurou:<br>
-                — Doido... mas eu gosto de pudim.<br>
-                — Eu te dou um, menino! — respondeu Rutherford, rindo.</p>
-            `
-        },
-        {   
-            title: "🌌 Parte 5: Bohr e os Saltos Quânticos",
-            content: `
-                <p><strong>Niels Bohr</strong> percebeu um grave problema: se os elétrons giram ao redor do núcleo, eles deveriam perder energia continuamente e colapsar sobre ele. Mas isso não acontece — os átomos são estáveis.</p>
-                
-                <p>Bohr então propôs uma ideia revolucionária: os elétrons só podem ocupar <strong>certas órbitas permitidas</strong>, com níveis fixos de energia. Quando saltam de uma órbita para outra, emitem ou absorvem luz em cores específicas — foi a explicação para os espectros atômicos.</p>
-                
-                <p>Nasceu o <strong>modelo atômico de Bohr (1913)</strong>, o primeiro a introduzir a <strong>quantização</strong> na estrutura do átomo. Ele explicou perfeitamente as raias do hidrogênio e ganhou o Nobel em 1922. A frase de Bohr ecoa: <em>"Se a mecânica quântica não te impressionou, você não a entendeu."</em></p>
-                
-                <p>De repente, o átomo não era mais um sistema solar clássico, mas um mundo de regras misteriosas e saltos quânticos.</p>
-            `
-        },
-        {   
-            title: "✨ Parte 6: O Legado dos Modelos Atômicos",
-            content: `
-                <p>Depois de Bohr, vieram <strong>Schrödinger, Heisenberg e De Broglie</strong>. Descobriram que os elétrons não têm órbitas exatas, mas sim <strong>nuvens de probabilidade</strong> (orbitais). O princípio da incerteza mostrou que não podemos saber ao mesmo tempo a posição e a velocidade de uma partícula.</p>
-                
-                <p>Hoje sabemos que o átomo é <strong>99,999% espaço vazio</strong>, e que toda a matéria é feita de campos quânticos. Tudo começou com um banho filosófico, uma laranja na cabeça, uma pedra assassina e um pudim de passas.</p>
-                
-                <p>🧪 <strong>Conclusão:</strong> A ciência avança com curiosidade, erros, acidentes e muito bom humor. De Dalton a Bohr, cada modelo atômico foi um tijolo na construção do conhecimento humano. E quem diria que tudo isso veio de uma simples dúvida: <em>"O que é feito de algo indestrutível?"</em></p>
-                
-                <p>🌟 <strong>Fim da contação</strong> — mas a ciência nunca termina. Continue curioso, e quem sabe um dia seja você a próximo a ter uma laranja (ou um pudim) na cabeça e mudar o mundo!</p>
-            `
+        { // 2 - RUTHERFORD & BOHR (sistema solar / núcleo)
+            title: "☀️ Rutherford, Bohr e o átomo solar",
+            text: `*Rutherford*\n\nAinda havia gente doida querendo a pedra filosofal em busca de riquezas, um deles era Rutherford. Ele contava com a ajuda de seu assistente Bohr para fazer seus experimentos e Bohr tinha muito medo de Rutherford, porque para ele Rutherford devia estar em um hospício faz tempo.\n— Bom dia — disse Bohr a Rutherford.\n— Bom dia hoje vamos pegar a antiga pedra filosofal e ficar ricos — anunciou Rutherford.\n— Porque ainda sou assistente desse doido? — Pensou Bohr.\n— Vou tomar um café volto logo — Disse Rutherford.\n— Ok! — Disse Bohr.\n\nRutherford saiu e ao voltar encontrou Bohr escrevendo:\n"Mamãe, caso eu morra hoje culpo o idiota do meu professor, eu sei que sou apenas assistente, mas esse trabalho é perigoso"\n— O que está escrevendo? — perguntou Rutherford curioso.\n— Nada, senhor! — disse Bohr assustado.\n\nEntão Rutherford ordenou: quero urânio, caixa de chumbo e uma película de ouro.\n— Senhor... Desculpe, mas sou seu assistente... Não sou assaltante.\n— Sim, você é um bom aluno, vai achar o material.\n\nAo juntar tudo, Rutherford colocou urânio dentro da caixa de chumbo, fez uma pequena abertura e depois colocou a película de ouro.\n— Hum... Alguns átomos conseguem passar pela película, outros sentem dificuldades e passam que nem loucos...\n— Átomos? Não íamos destruir a película de ouro?\n— E você acha que se eu falasse a verdade você estaria interessado? — Não... — Ótimo.\n\n— Mas o Dalton e Thomson não já descobriram esse negócio de átomo?\n— Isso é coisa antiga, minhas conclusões atuais são diferentes. Parece que no núcleo há cargas positivas e os elétrons são negativos. Mas os elétrons vivem na eletrosfera.\n— Que?\n— É como o sistema solar.\n— Doido — pensou Bohr.\n— Isso! Vamos fazer do sistema solar a nova representação do átomo.\n— Mas... Mas... Eu gosto tanto de pudim.\n— Eu te dou um.\n— E a película de ouro? — Pode ser minha?\n— Oh menino! Vai ganhar o pudim e ainda quer mais?\n— Doido`,
+            fact: `⚛️ Fatos reais: Experimento de Rutherford (1909) com Geiger e Marsden: partículas alfa bombardeadas em ouro – maioria passava, mas 1 a cada 8000 era desviada, provando um núcleo pequeno, denso e positivo. Em 1911 Rutherford propôs modelo planetário (núcleo + elétrons orbitando). Seu assistente Niels Bohr, em 1913, resolveu o problema da estabividade: elétrons em órbitas fixas (camadas) sem irradiar energia. Bohr ganhou o Nobel de 1922. Rutherford ficou conhecido como "pai da física nuclear".`
         }
     ];
 
-    let currentChapterIndex = 0;      // 0 = primeira parte
-    const totalChapters = chapters.length;
-
-    // Elementos DOM
-    const chapterBadgeSpan = document.getElementById("chapterBadge");
-    const storyTextDiv = document.getElementById("storyText");
-    const pageIndicatorSpan = document.getElementById("pageIndicator");
+    let currentIndex = 0;
+    const storyDisplay = document.getElementById("storyDisplay");
+    const factBtn = document.getElementById("factBtn");
+    const modal = document.getElementById("factModal");
+    const modalFactText = document.getElementById("modalFactText");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
-    const resetBtn = document.getElementById("resetBtn");
+    const progressDots = document.getElementById("progressDots");
 
-    // Função para atualizar a tela com o capítulo atual
-    function updateChapter() {
-        const chapter = chapters[currentChapterIndex];
-        chapterBadgeSpan.textContent = chapter.title;
-        storyTextDiv.innerHTML = chapter.content;
-        pageIndicatorSpan.textContent = `Parte ${currentChapterIndex + 1} / ${totalChapters}`;
-        
-        // Desabilitar botão "Avançar" se for o último capítulo
-        if (currentChapterIndex === totalChapters - 1) {
-            nextBtn.disabled = true;
-            nextBtn.textContent = "📖 Fim da História";
+    // Atualizar história atual
+    function loadStory(index) {
+        const story = stories[index];
+        // Construir texto com título e conteúdo
+        let formatted = `<strong>📖 ${story.title}</strong><br><br>`;
+        formatted += story.text.replace(/\n/g, '<br>');
+        storyDisplay.innerHTML = formatted;
+        updateProgressDots();
+    }
+
+    // Atualizar indicadores de progresso
+    function updateProgressDots() {
+        progressDots.innerHTML = "";
+        stories.forEach((_, idx) => {
+            const dot = document.createElement("div");
+            dot.classList.add("progress-dot");
+            if (idx === currentIndex) dot.classList.add("active");
+            dot.addEventListener("click", () => {
+                currentIndex = idx;
+                loadStory(currentIndex);
+            });
+            progressDots.appendChild(dot);
+        });
+    }
+
+    // Popup do fato real atual
+    function showFactPopup() {
+        const factText = stories[currentIndex].fact;
+        modalFactText.innerText = factText;
+        modal.style.display = "flex";
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Navegação
+    function nextStory() {
+        if (currentIndex + 1 < stories.length) {
+            currentIndex++;
+            loadStory(currentIndex);
         } else {
-            nextBtn.disabled = false;
-            nextBtn.textContent = "Avançar ▶";
-        }
-        
-        // Rolagem suave para o topo da história
-        document.querySelector(".story-area")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    // Avançar para o próximo capítulo
-    function nextChapter() {
-        if (currentChapterIndex < totalChapters - 1) {
-            currentChapterIndex++;
-            updateChapter();
+            // efeito bônus: voltar ao início com um toque
+            if (confirm("✨ Você terminou as histórias! Deseja voltar para o começo?")) {
+                currentIndex = 0;
+                loadStory(currentIndex);
+            } else {
+                // mensagem sutil
+                alert("📚 Fim da jornada atômica! Clique em 'Anterior' para revisitar.");
+            }
         }
     }
 
-    // Recomeçar do início
-    function resetStory() {
-        currentChapterIndex = 0;
-        updateChapter();
+    function prevStory() {
+        if (currentIndex - 1 >= 0) {
+            currentIndex--;
+            loadStory(currentIndex);
+        } else {
+            alert("🔙 Esta é a primeira história! Clique em 'Próxima' para avançar.");
+        }
     }
 
-    // Eventos dos botões
-    nextBtn.addEventListener("click", nextChapter);
-    resetBtn.addEventListener("click", resetStory);
-    
-    // Atalho de teclado: seta direita avança, seta esquerda volta ao início (opcional, mas mantemos só avanço)
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight" && currentChapterIndex < totalChapters - 1) {
-            nextChapter();
-        } else if (e.key === "Home") {
-            resetStory();
+    // Eventos e modal fechar com clique fora (opcional)
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
         }
     });
-    
-    // Inicializar a história
-    updateChapter();
-    
-    // Pequeno easter egg: clicar no título mostra curiosidade científica (divertido)
-    const headerTitle = document.querySelector(".header h1");
-    let clickCount = 0;
-    headerTitle.addEventListener("click", () => {
-        clickCount++;
-        if (clickCount === 3) {
-            alert("🔍 Curiosidade: O átomo de hidrogênio tem cerca de 0,05 nanômetro de diâmetro. Seu núcleo é 100 mil vezes menor! A história é maior que o átomo. 😊");
-            clickCount = 0;
+
+    // Teclado: seta direita/esquerda
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            nextStory();
+        } else if (e.key === 'ArrowLeft') {
+            prevStory();
+        } else if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeModal();
         }
-        setTimeout(() => { clickCount = 0; }, 1000);
     });
+
+    // Inicialização
+    loadStory(0);
+    factBtn.addEventListener('click', showFactPopup);
+    closeModalBtn.addEventListener('click', closeModal);
+    prevBtn.addEventListener('click', prevStory);
+    nextBtn.addEventListener('click', nextStory);
 </script>
 </body>
 </html>
