@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Modelos Atômicos: A História Interativa</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #1e2a2e 0%, #0f1a1f 100%);
+            font-family: 'Segoe UI', 'Gill Sans', 'Gill Sans MT', 'Roboto', system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px 16px;
+        }
+
+        /* Container principal estilo "caderno de cientista" */
+        .story-container {
+            max-width: 900px;
+            width: 100%;
+            background: #fef7e0;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255,245,200,0.3) 2%, transparent 2.5%);
+            background-size: 28px 28px;
+            border-radius: 48px 32px 48px 32px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,200,0.6);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        /* header divertido */
+        .header {
+            background: #2c3e2f;
+            padding: 16px 24px;
+            border-bottom: 6px solid #d4a373;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.9rem;
+            letter-spacing: 2px;
+            color: #fae67a;
+            text-shadow: 3px 3px 0 #5a3e1b;
+            font-weight: 800;
+        }
+
+        .header p {
+            margin: 8px 0 0;
+            color: #e9c46a;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* Área da história */
+        .story-card {
+            padding: 28px 28px 20px 28px;
+            min-height: 420px;
+            background: #fffaf0;
+            border-bottom: 2px dashed #e0cba0;
+        }
+
+        .story-text {
+            font-size: 1.28rem;
+            line-height: 1.5;
+            color: #2d3e2b;
+            font-weight: 500;
+            margin-bottom: 28px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #fffff0;
+            padding: 18px 22px;
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: inset 0 0 0 1px #fff6e0, 0 8px 18px rgba(0,0,0,0.05);
+        }
+
+        /* Opções de escolha */
+        .choices-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 20px 0 12px;
+            justify-content: center;
+        }
+
+        .choice-btn {
+            background: #3b5e3b;
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-family: inherit;
+            flex: 1 0 auto;
+            max-width: 280px;
+        }
+
+        .choice-btn:hover {
+            background: #5a7c3c;
+            transform: scale(0.96);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Botão reset */
+        .reset-btn {
+            background: #b96f30;
+            margin-top: 8px;
+            border: none;
+            color: #fff3cf;
+            font-weight: bold;
+            padding: 8px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            width: auto;
+            display: inline-block;
+        }
+
+        .reset-btn:hover {
+            background: #9b4e1a;
+            transform: scale(0.96);
+        }
+
+        .footer {
+            background: #e6d5b3;
+            padding: 16px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: #5a4a2e;
+        }
+
+        .progress {
+            font-family: monospace;
+            background: #2e2b23;
+            padding: 4px 12px;
+            border-radius: 32px;
+            color: #ffecb3;
+            font-weight: bold;
+        }
+
+        button {
+            background: none;
+            border: none;
+        }
+
+        @media (max-width: 600px) {
+            .story-text {
+                font-size: 1rem;
+                padding: 14px;
+            }
+            .choice-btn {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="story-container" id="app">
+    <div class="header">
+        <h1>⚛️ MODELOS ATÔMICOS: ⚗️</h1>
+        <p>▸ uma história quântica com escolhas e consequências ◂</p>
+    </div>
+    <div class="story-card">
+        <div class="story-text" id="storyText">
+            Carregando sua jornada atômica...
+        </div>
+        <div class="choices-area" id="choicesContainer">
+            <!-- Botões dinâmicos aparecem aqui -->
+        </div>
+    </div>
+    <div class="footer">
+        <div>🧪 <strong>Ciência & Loucura</strong> | baseado nos diálogos de Dalton, Thomson, Rutherford</div>
+        <button class="reset-btn" id="resetBtn">⟳ Reiniciar experiência</button>
+        <div class="progress" id="progressBadge">capítulo inicial</div>
+    </div>
+</div>
+
+<script>
+    // ------------- ESTRUTURA DA HISTÓRIA ALTERNATIVA COM ESCOLHAS -------------
+    // Cada cena contém: id, texto, array de escolhas (cada escolha tem texto e próximo id)
+    // E também pode ter finalAlternativo true, e imagem simbólica.
+    
+    const scenes = {
+        // Cena 0 - Prólogo: banho filosófico de Dalton
+        inicio: {
+            id: "inicio",
+            text: "🧼 Dois homens tomam banho juntos. Um deles esfrega as costas do outro e percebe: 'Sua pele continua intacta! Você deve ser feito de algo indestrutível!' — 'Mais indestrutível que água, fogo, terra e ar?' — 'Espera... você é o avatar?' — 'Não, mas... sou feito de algo que suporta elementos.' 🌟 Tempos depois, John Dalton pensa na 'coisa indestrutível' e uma laranja cai em sua cabeça. 'Tudo é redondo! O átomo é esférico!' Contudo, durante sua palestra com bolas de sinuca, Dalton descobre que tem daltonismo e troca as bolas vermelhas e verdes. A plateia ri. Agora, a história pode seguir por diferentes caminhos. <br><br> <strong>⚛️ O que você quer fazer?</strong>",
+            choices: [
+                { text: "🍊 Ajudar Dalton a enxergar as cores com um novo método", nextId: "dalton_color", effect: "dalton_corrige" },
+                { text: "🎱 Usar bolas brilhantes e criar uma 'teoria das esferas luminosas'", nextId: "dalton_brilho", effect: "luz" },
+                { text: "🧪 Ir direto para as descobertas de Becquerel (pedra filosofal)", nextId: "becquerel_start", effect: "skip_dalton" }
+            ]
+        },
+        // RAMO DALTON - ajuda cores
+        dalton_color: {
+            id: "dalton_color",
+            text: "🎨 Você sugere a Dalton usar formas geométricas no lugar das cores. Ele anima: 'Claro! triângulos para nitrogênio, quadrados para oxigênio!' A plateia finalmente entende. Dalton fica famoso, mas encontra um dilema: será que o átomo realmente é uma bolinha sólida? Você pode investigar mais a fundo.<br><br>🔬 O que fazer agora?",
+            choices: [
+                { text: "⚡ Seguir para o experimento de Thomson com os raios catódicos", nextId: "thomson_pudim", effect: "to_thomson" },
+                { text: "🍮 Incentivar Thomson a pensar em 'pudim de passas' mais cedo", nextId: "thomson_early_pudding", effect: "pudim_cedo" }
+            ]
+        },
+        dalton_brilho: {
+            id: "dalton_brilho",
+            text: "💡 'Brilhar? Não é brilhar, é bilhar!' — mas a confusão vira oportunidade: Dalton adiciona tinta fluorescente nas bolas, tornando a palestra um show de luzes. Inspirado, ele propõe que os átomos emitem 'brilho próprio' quando excitados. Isso antecipa a teoria quântica! Porém, Bohr, que assistia, anota: 'Interessante... e se os elétrons saltassem entre níveis de energia?' ⚡ O futuro da física muda!<br><br>✨ Agora você decide:",
+            choices: [
+                { text: "🌌 Saltar para o modelo de Rutherford com o sistema solar", nextId: "rutherford_solar", effect: "ruther_early" },
+                { text: "🍮 Ir para a descoberta do elétron com Thomson e o pudim de passas", nextId: "thomson_pudim", effect: "thomson_via_brilho" }
+            ]
+        },
+        // Becquerel e a pedra filosofal (caminho alternativo + urânio)
+        becquerel_start: {
+            id: "becquerel_start",
+            text: "☢️ Becquerel guarda a misteriosa pedra (urânio) no bolso da calça. Sua perna fica vermelha, depois câncer e amputação! Mesmo assim, ele insiste em guardar a pedra no outro bolso... e depois no bolso da camisa, o que lhe custa a vida. Os alquimistas vendem as pedras como 'cosméticos cósmicos' causando desastres. Um comprador entrega a pedra a J.J. Thomson. ⚡ Thomson liga uma bateria e descobre os elétrons! Ele percebe que o átomo não é maciço. 'Mulher, você é um gênio com esse pudim de passas!'<br><br>🍮 Como Thomson deve representar o átomo?",
+            choices: [
+                { text: "🍰 Modelo 'Pudim de Passas' clássico (cargas positivas e elétrons negativos)", nextId: "thomson_pudim_final", effect: "pudim_classic" },
+                { text: "🍡 Inovar: modelo de 'picolé de frutas' com camadas (precursor de Bohr)", nextId: "thomson_camadas", effect: "layers" }
+            ]
+        },
+        thomson_pudim: {
+            id: "thomson_pudim",
+            text: "🥧 Thomson brinca com o pudim de passas da esposa: as passas se espalham na papa e caem do garfo. 'EUREKA! O átomo tem cargas negativas (elétrons) mergulhadas numa nuvem positiva, como passas num pudim!' O modelo de Thomson revoluciona a ciência. Mas seu aluno Rutherford desconfia. 'Professor, acho que o núcleo é duro e denso...'<br><br>⚛️ Qual caminho seguir?",
+            choices: [
+                { text: "🔬 Ajudar Rutherford a bombardear a folha de ouro (experimento ouro)", nextId: "rutherford_ouro", effect: "gold_foil" },
+                { text: "📚 Estudar os espectros e pular para o modelo de Bohr de órbitas", nextId: "bohr_orbits", effect: "spectrum" }
+            ]
+        },
+        thomson_early_pudding: {
+            id: "thomson_early_pudding",
+            text: "🍮 Graças ao seu incentivo, Thomson propõe o modelo atômico antes mesmo de Becquerel! A comunidade científica se divide: alguns amam o pudim, outros acham 'mole demais'. Rutherford, curioso, abandona a busca pela pedra filosofal e foca na radioatividade. Ele descobre a existência do núcleo com um experimento inusitado usando folhas de ouro. ⚡ 'Os elétrons estão na eletrosfera!'<br><br>🔭 Para onde vamos?",
+            choices: [
+                { text: "🌞 Avançar para o modelo planetário de Rutherford", nextId: "rutherford_solar", effect: "nuclear" },
+                { text: "🌀 Explorar a teoria dos 'átomos de cores' de Dalton revisitada", nextId: "dalton_color_remix", effect: "retro" }
+            ]
+        },
+        thomson_pudim_final: {
+            id: "thomson_pudim_final",
+            text: "🍰 Modelo do pudim de passas é consagrado! Thomson escreve um livro 'O Átomo Macio'. Contudo, Rutherford (seu pupilo) não se convence. 'Vou atirar partículas alfa numa lâmina de ouro'. Ele convoca seu assistente Bohr, que está apavorado, escrevendo carta para a mãe. A experiência revela que o átomo tem um núcleo pequeno e denso! 'Meu Deus, não é pudim, é um sistema solar minúsculo!'<br><br>🌌 Hora de escolher o futuro modelo:",
+            choices: [
+                { text: "🪐 Modelo de Rutherford (núcleo positivo + elétrons orbitando)", nextId: "rutherford_solar", effect: "rutherford_win" },
+                { text: "🧪 Modelo Quântico de Bohr com níveis de energia discretos", nextId: "bohr_orbits", effect: "quantum_leap" }
+            ]
+        },
+        rutherford_ouro: {
+            id: "rutherford_ouro",
+            text: "🏅 Rutherford monta o experimento: urânio dentro de caixa de chumbo, uma fina película de ouro, e detector. A maioria das partículas atravessa, mas algumas voltam! 'É como atirar uma bala de canhão em papel e ela voltar!' Rutherford conclui: o átomo tem um núcleo minúsculo, denso e positivo. Bohr, seu assistente, sugere órbitas fixas. 'Doido? Talvez, mas genial!' O modelo planetário nasce.<br><br>🌟 Bohr insiste que os elétrons só podem ocupar certas órbitas. Você decide:",
+            choices: [
+                { text: "☄️ Aceitar o modelo de Rutherford + órbitas de Bohr (átomo de Bohr)", nextId: "bohr_orbits", effect: "bohr_success" },
+                { text: "⚛️ Ir além: criar um modelo de nuvem eletrônica (Schrödinger inspirado)", nextId: "quantum_final", effect: "modern" }
+            ]
+        },
+        rutherford_solar: {
+            id: "rutherford_solar",
+            text: "🪐 Rutherford anuncia: 'O átomo é como um sistema solar, com núcleo no centro e elétrons girando!' Mas Bohr murmura: 'Então por que os elétrons não caem no núcleo?' Ele propõe níveis quantizados de energia. A plateia (cientistas) fica perplexa. Niels Bohr ganha destaque. E um novo dilema surge: e se a física quântica estiver certa?<br><br>🔮 Escolha o final da história atômica:",
+            choices: [
+                { text: "🌟 Final clássico: modelo de Bohr aceito, elétrons saltam de níveis", nextId: "ending_bohr_happy", effect: "bohr_end" },
+                { text: "🌀 Final revolucionário: descobrir a dualidade onda-partícula", nextId: "ending_quantum_duality", effect: "duality" }
+            ]
+        },
+        bohr_orbits: {
+            id: "bohr_orbits",
+            text: "⚛️ Bohr apresenta seu modelo atômico com órbitas definidas: K, L, M... Os elétrons absorvem ou emitem fótons ao saltar. A espectroscopia é explicada! Rutherford abraça Bohr e diz: 'Você não é doido, é um gênio!'. A comunidade científica vibra. Contudo, ainda falta algo: os elétrons se comportam como ondas?<br><br>📡 Qual destino você escolhe para a história?",
+            choices: [
+                { text: "✨ Final feliz: modelo de Bohr como base para toda química moderna", nextId: "ending_bohr_happy", effect: "classic_end" },
+                { text: "🌊 Final ousado: introduzir o princípio da incerteza e nuvens eletrônicas", nextId: "ending_quantum_duality", effect: "heisenberg" }
+            ]
+        },
+        dalton_color_remix: {
+            id: "dalton_color_remix",
+            text: "🎨 Em uma realidade alternativa, Dalton abandona as esferas maciças e cria os 'átomos de arco-íris', onde cada elemento tem uma frequência de cor. Isso inspira diretamente a espectroscopia de Bohr um século antes! A tecnologia avança rápido, e o primeiro acelerador de partículas é construído em 1870. Parabéns, você desbloqueou a 'Linha do Tempo Caleidoscópica'! <br><br>🌈 Fim alternativo especial: a humanidade entende a matéria através da arte e da luz.",
+            choices: [
+                { text: "🔁 Recomeçar jornada", nextId: "inicio", effect: "reset" }
+            ]
+        },
+        // Finais especiais
+        ending_bohr_happy: {
+            id: "ending_bohr_happy",
+            text: "🏆 FINAL CLÁSSICO — O modelo de Bohr une a mecânica quântica inicial e explica as linhas espectrais. O átomo é como um pequeno sistema solar com regras quânticas. Dalton, Thomson, Rutherford e Bohr tomam um café filosófico e brindam: 'À ciência, que transforma loucos em gênios!' ☕⚛️. A história dos modelos atômicos se torna um grande legado para a humanidade.<br><br>🌟 Você completou a história com sabedoria!",
+            choices: [
+                { text: "✨ Recomeçar do início", nextId: "inicio", effect: "reset" }
+            ]
+        },
+        ending_quantum_duality: {
+            id: "ending_quantum_duality",
+            text: "🌀 FINAL QUÂNTICO — Você empurra a história além! Bohr, inspirado por debates, propõe o princípio da complementaridade. Elétrons são ondas e partículas! Schrödinger cria a equação de onda, Heisenberg traz a incerteza. O átomo se torna uma nuvem de probabilidades. A humanidade domina a mecânica quântica e desenvolve teletransporte atômico! 🚀💫 Tudo graças a uma pitada de ousadia.<br><br>🧬 Parabéns por desvendar a realidade mais profunda!",
+            choices: [
+                { text: "🔮 Recomeçar experiência", nextId: "inicio", effect: "reset" }
+            ]
+        },
+        quantum_final: {
+            id: "quantum_final",
+            text: "⚛️✨ Nuvem eletrônica e orbitais! Com o insight moderno, você abole a ideia de órbitas fixas e antecipa o modelo quântico atual. Átomos são descritos por funções de onda. A ciência pula décadas de desenvolvimento e descobre a fusão nuclear controlada. Final alternativo revolucionário! 🧠🔥",
+            choices: [
+                { text: "🔄 Recomeçar jornada", nextId: "inicio", effect: "reset" }
+            ]
+        },
+        thomson_camadas: {
+            id: "thomson_camadas",
+            text: "🍡 Thomson propõe o 'modelo de picolé de camadas': elétrons em cascas concêntricas. Bohr, ainda estudante, fica fascinado e desenvolve sua teoria de níveis de energia anos antes. O prêmio Nobel chega cedo! A linha do tempo acelera. 🎉<br><br>◈ Final especial: modelo atômico estratificado vira padrão.",
+            choices: [
+                { text: "♻️ Recomeçar história", nextId: "inicio", effect: "reset" }
+            ]
+        }
+    };
+    
+    // Estado atual
+    let currentSceneId = "inicio";
+    let historyStack = []; // para manter rastro (opcional)
+    
+    // elementos DOM
+    const storyTextEl = document.getElementById("storyText");
+    const choicesContainer = document.getElementById("choicesContainer");
+    const resetBtn = document.getElementById("resetBtn");
+    const progressBadge = document.getElementById("progressBadge");
+    
+    // função para atualizar a interface
+    function renderScene(sceneId) {
+        const scene = scenes[sceneId];
+        if (!scene) {
+            // fallback seguro
+            storyTextEl.innerText = "Erro: cena não encontrada. Reinicie a história.";
+            choicesContainer.innerHTML = '<button class="choice-btn reset-btn" id="emergencyReset">Reiniciar</button>';
+            const emergency = document.getElementById("emergencyReset");
+            if (emergency) emergency.onclick = () => { currentSceneId = "inicio"; renderScene("inicio"); };
+            return;
+        }
+        
+        storyTextEl.innerHTML = scene.text;
+        
+        // Atualizar badge de progresso
+        let chapterName = "⚛️ átomo inicial";
+        if (sceneId.includes("dalton")) chapterName = "🧪 Dalton & esferas";
+        else if (sceneId.includes("thomson")) chapterName = "🍮 Pudim de passas";
+        else if (sceneId.includes("rutherford")) chapterName = "🏅 Experimento do ouro";
+        else if (sceneId.includes("bohr")) chapterName = "🌌 Bohr e órbitas";
+        else if (sceneId.includes("ending")) chapterName = "🏁 Final especial";
+        else if (sceneId.includes("becquerel")) chapterName = "☢️ Becquerel e urânio";
+        else if (sceneId.includes("quantum")) chapterName = "🌀 Ondas quânticas";
+        else if (sceneId === "inicio") chapterName = "🍊 Laranja de Dalton";
+        progressBadge.innerText = `📖 ${chapterName}`;
+        
+        // Gerar botões de escolha
+        choicesContainer.innerHTML = "";
+        if (scene.choices && scene.choices.length > 0) {
+            scene.choices.forEach((choice, idx) => {
+                const btn = document.createElement("button");
+                btn.className = "choice-btn";
+                btn.innerText = choice.text;
+                btn.addEventListener("click", () => {
+                    // efeito opcional (console imprime)
+                    if (choice.effect) {
+                        console.log(`[Efeito narrativo: ${choice.effect}]`);
+                    }
+                    // Ir para a próxima cena
+                    if (scenes[choice.nextId]) {
+                        currentSceneId = choice.nextId;
+                        renderScene(currentSceneId);
+                    } else {
+                        // se não existir, fallback para inicio
+                        currentSceneId = "inicio";
+                        renderScene("inicio");
+                    }
+                });
+                choicesContainer.appendChild(btn);
+            });
+        } else {
+            // Caso não haja escolhas, exibir botão de reinício
+            const resetChoice = document.createElement("button");
+            resetChoice.className = "choice-btn reset-btn";
+            resetChoice.innerText = "🔁 Reiniciar jornada";
+            resetChoice.addEventListener("click", () => {
+                currentSceneId = "inicio";
+                renderScene("inicio");
+            });
+            choicesContainer.appendChild(resetChoice);
+        }
+        
+        // Efeito adicional: rolar suavemente para o topo do card
+        document.querySelector(".story-card")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    
+    // Reset manual
+    function resetGame() {
+        currentSceneId = "inicio";
+        renderScene("inicio");
+    }
+    
+    resetBtn.addEventListener("click", resetGame);
+    
+    // Inicializar
+    renderScene("inicio");
+    
+    // Adicionar um detalhe escondido: easter egg do "pudim"
+    document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === 'p') {
+            storyTextEl.innerHTML += "<br><br>🍮 <em>Você invocou o pudim quântico! O átomo vibra em harmonia.</em>";
+        }
+    });
+</script>
+</body>
+</html>
